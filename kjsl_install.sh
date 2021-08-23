@@ -11,10 +11,12 @@ echo "Installing Tilt Pi"
 sudo apt-get update
 sudo apt-get -y install python3-distutils
 sudo apt-get -y install bluez bluez-hcidump bluez-firmware wpasupplicant
+sudo apt-get -y install python-bluez python-requests python-pygame python-rpi.gpio 
 
 pip install --upgrade pip
 sudo apt-get -y install libbluetooth-dev
 sudo pip3 install bluepy pybluez
+
 
 git clone https://github.com/kevleyski/aioblescan.git
 
@@ -27,6 +29,7 @@ bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/mast
 cd ~/.node-red
 sudo -H npm install node-red-dashboard@2.15.5
 
+sudo setcap cap_net_raw+eip $(eval readlink -f `which python`)
 
 touch ~/kjsl_tilt
 
